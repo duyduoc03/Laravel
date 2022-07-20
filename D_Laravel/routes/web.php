@@ -36,3 +36,5 @@ Route::get('/add-product', function () {
 Route::get('/edit-product', function () {
     return view('product/edit-product');
 });
+Route::get("/class/list",[\App\Http\Controllers\ClassesController::class,"all"]);
+Route::get("/student/list",[\App\Http\Controllers\StudentsController::class,"all"]);

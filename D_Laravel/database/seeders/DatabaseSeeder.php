@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
 //        Subject::factory(10)->create();
 //        Student::factory(100)->create();
 //        Student_Subject::factory(50)->create();
-        Score::factory(50)->create();
+//        Score::factory(50)->create();
     }
 }
