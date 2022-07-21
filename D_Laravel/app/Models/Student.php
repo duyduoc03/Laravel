@@ -12,6 +12,7 @@ class Student extends Model
     protected $primaryKey = 'sid';
     protected $keyType ='string';
     protected $fillable = [
+        'sid',
         'name',
         'birthday',
         'cid',
@@ -30,6 +31,18 @@ class Student extends Model
     public function scopeClassFilter($query,$cid=''){
         if ($cid != null && $cid != ''){
             return $query->where("cid",$cid);
+        }
+        return $query;
+    }
+    public function scopeFDate($query,$fd=''){
+        if ($fd != null && $fd != ''){
+            return $query->where("birthday",">=",$fd);
+        }
+        return $query;
+    }
+    public function scopeLDate($query,$ld=''){
+        if ($ld != null && $ld != ''){
+            return $query->where("birthday","<=",$ld);
         }
         return $query;
     }

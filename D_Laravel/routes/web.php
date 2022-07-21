@@ -18,23 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get("/about",[WebController::class,"aboutUs"]);
-Route::get('/list-category', function () {
-    return view('category/list-category');
-});
-Route::get('/add-category', function () {
-    return view('category/add-category');
-});
-Route::get('/edit-category', function () {
-    return view('category/edit-category');
-});
-Route::get('/list-product', function () {
-    return view('product/list-product');
-});
-Route::get('/add-product', function () {
-    return view('product/add-product');
-});
-Route::get('/edit-product', function () {
-    return view('product/edit-product');
-});
-Route::get("/class/list",[\App\Http\Controllers\ClassesController::class,"all"]);
+//Student
 Route::get("/student/list",[\App\Http\Controllers\StudentsController::class,"all"]);
+Route::get("/student/create",[\App\Http\Controllers\StudentsController::class,"form"]);
+Route::post("/student/create",[\App\Http\Controllers\StudentsController::class,"create"]);
+//Class
+Route::get("/class/list",[\App\Http\Controllers\ClassesController::class,"all"]);
+Route::get("/class/create",[\App\Http\Controllers\ClassesController::class,"form"]);
+Route::post("/class/create",[\App\Http\Controllers\ClassesController::class,"create"]);
+//Subject
+Route::get("/subject/list",[\App\Http\Controllers\SubjectsController::class,"all"]);
+Route::get("/subject/create",[\App\Http\Controllers\SubjectsController::class,"form"]);
+Route::post("/subject/create",[\App\Http\Controllers\SubjectsController::class,"create"]);
+//Score
+Route::get("/score/list",[\App\Http\Controllers\ScoresController::class,"all"]);
+Route::get("/score/create",[\App\Http\Controllers\ScoresController::class,"form"]);
+Route::post("/score/create",[\App\Http\Controllers\ScoresController::class,"create"]);

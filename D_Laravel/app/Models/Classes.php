@@ -16,11 +16,25 @@ class Classes extends Authenticatable
     protected $keyType = 'string';
 
     protected $fillable = [
+        "cid",
         "name",
+        "room",
         "created_at",
         "updated_at"
     ];
     public function students(){
         return $this->hasMany(Student::class,"cid","cid");
+    }
+    public function scopeSearchN($query,$search=''){
+        if ($search != null && $search != ''){
+            return $query->where("name","like",'%'.$search."%");
+        }
+        return $query;
+    }
+    public function scopeSearchR($query,$search=''){
+        if ($search != null && $search != ''){
+            return $query->where("room","like",'%'.$search."%");
+        }
+        return $query;
     }
 }
